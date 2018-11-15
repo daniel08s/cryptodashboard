@@ -1,19 +1,22 @@
 // npm packages
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+// import styled, { css } from 'styled-components';
 
 // project packages
 import './App.css';
 import Welcome from './WelcomeMessage';
 import AppLayout from './AppLayout';
 import AppBar from './AppBar';
+import { AppProvider } from './AppProvider';
 
 class App extends Component {
   render() {
     return (
       <AppLayout>
-        <AppBar />
-        <Welcome />
+        <AppProvider>
+          <AppBar />
+          <Welcome />
+        </AppProvider>
       </AppLayout>
     );
   }
