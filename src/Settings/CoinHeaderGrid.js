@@ -4,7 +4,8 @@ import { DeletableTile } from '../Shared/Tile';
 
 export const CoinHeaderGridStyled = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  min-width: 150px;
 `;
 
 export const CoinSymbol = styled.div`
