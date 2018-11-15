@@ -7,7 +7,7 @@ export default function ({firstVisit}) {
       {({firstVisit}) => (
         firstVisit ?
           <div>
-            Welcome to CryptoDashboard, please select your favorite coin to start.{' '}
+            Welcome to CryptoDashboard, please select your favorite coins to start.
           </div> : null
       )}
     </AppContext.Consumer>
