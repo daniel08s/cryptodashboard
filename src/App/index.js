@@ -1,7 +1,11 @@
+// npm packages
 import React, { Component } from 'react';
-import './App.css';
+import styled, { css } from 'styled-components';
 
+// project packages
+import './App.css';
 import Welcome from './WelcomeMessage';
+
 
 class App extends Component {
   render() {
