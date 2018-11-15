@@ -1,6 +1,5 @@
 // npm packages
 import React, { Component } from 'react';
-// import styled, { css } from 'styled-components';
 
 // project packages
 import './App.css';
