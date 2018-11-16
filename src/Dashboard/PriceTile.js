@@ -1,8 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import { AppContext } from '../App/AppProvider';
 import { SelectableTile } from '../Shared/Tile';
-import { fontSize3, fontSizeBig } from '../Shared/Styles';
+import { fontSize3, fontSizeBig, greenBoxShadow } from '../Shared/Styles';
 import { CoinHeaderGridStyled } from '../Settings/CoinHeaderGrid';
 
 const numberFormat = number => +(number + '').slice(0, 7);
@@ -34,6 +35,11 @@ const PriceTileStyled = styled(SelectableTile)`
     justify-items: right;
     ${fontSize3}
   `}
+
+  ${props => props.currentFavorite && css`
+    ${greenBoxShadow}
+    pointer-events: none;
+  `}
 `;
 
 const ChangePercent = ({data}) => {
@@ -46,9 +52,13 @@ const ChangePercent = ({data}) => {
   );
 };
 
-const PriceTileCompact = ({sym, data}) => {
+const PriceTileCompact = ({sym, data, currentFavorite, setCurrentFavorite}) => {
   return (
-    <PriceTileStyled compact>
+    <PriceTileStyled
+      compact
+      currentFavorite={currentFavorite}
+      onClick={setCurrentFavorite}
+    >
       <JustifiedLeft>{sym}</JustifiedLeft>
       <ChangePercent data={data} />
       <div>
@@ -58,9 +68,12 @@ const PriceTileCompact = ({sym, data}) => {
   );
 };
 
-const PriceTile = ({sym, data}) => {
+const PriceTile = ({sym, data, currentFavorite, setCurrentFavorite}) => {
   return (
-    <PriceTileStyled>
+    <PriceTileStyled
+      currentFavorite={currentFavorite}
+      onClick={setCurrentFavorite}
+    >
       <CoinHeaderGridStyled>
         <div>{sym}</div>
         <ChangePercent data={data} />
@@ -78,6 +91,15 @@ export default ({price, index}) => {
   const TileClass = index < 5 ? PriceTile : PriceTileCompact;
 
   return (
-    <TileClass sym={sym} data={data} />
+    <AppContext.Consumer>
+      {({currentFavorite, setCurrentFavorite}) => (
+        <TileClass
+          sym={sym}
+          data={data}
+          currentFavorite={currentFavorite === sym}
+          setCurrentFavorite={() => setCurrentFavorite(sym)}
+        />
+      )}
+    </AppContext.Consumer>
   );
 }
