@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { debounce, pickBy } from 'lodash';
+import fuzzy from 'fuzzy';
+
 import { purpleBackground, fontSize2 } from '../Shared/Styles';
+import { AppContext } from '../App/AppProvider';
 
 const SearchGrid = styled.div`
   display: grid;
@@ -19,11 +23,44 @@ const SearchInput = styled.input`
   justify-self: left;
 `;
 
+const handleFilter = debounce((inputValue, coinList, setFilteredCoins) => {
+  // Get all the symbols
+  const coinSymbols = Object.keys(coinList);
+
+  // Get all the names and map the symbol to each name
+  const coinNames = coinSymbols.map(symbol => coinList[symbol].CoinName);
+
+  // Merge symbols and names
+  const allStringsToSearch = coinSymbols.concat(coinNames);
+
+  // Filter the results
+  const results = fuzzy
+    .filter(inputValue, allStringsToSearch)
+    .map(result => result.string);
+  const filteredCoins = pickBy(coinList, (result, symKey) => {
+    const coinName = result.CoinName;
+    return (results.includes(symKey) || results.includes(coinName));
+  });
+  setFilteredCoins(filteredCoins);
+}, 500);
+
+const filterCoins = (evt, setFilteredCoins, coinList) => {
+  let inputValue = evt.target.value;
+  if (!inputValue) {
+    setFilteredCoins(null);
+  }
+  handleFilter(inputValue, coinList, setFilteredCoins);
+};
+
 export default () => {
   return (
-    <SearchGrid>
-      <h2>Search coins</h2>
-      <SearchInput />
-    </SearchGrid>
+    <AppContext.Consumer>
+      {({setFilteredCoins, coinList}) => (
+        <SearchGrid>
+          <h2>Search coins</h2>
+          <SearchInput onKeyUp={(evt) => filterCoins(evt, setFilteredCoins, coinList)} />
+        </SearchGrid>
+      )}
+    </AppContext.Consumer>
   );
 };
