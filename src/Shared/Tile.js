@@ -6,8 +6,6 @@ export const Tile = styled.div`
   ${subtleBoxShadow2}
   ${purpleBackground}
   padding: 10px;
-  display: grid;
-  grid-template-rows: 0.75fr 1fr;
 `;
 
 export const SelectableTile = styled(Tile)`
