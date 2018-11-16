@@ -13,10 +13,12 @@ export default () => {
   return (
     <AppContext.Consumer>
       {({currentFavorite, coinList}) => (
-        <Tile>
-          <SpotlightName>{coinList[currentFavorite].CoinName}</SpotlightName>
-          <CoinImage coin={coinList[currentFavorite]} spotlight />
-        </Tile>
+        <React.Fragment>
+          <Tile>
+            <SpotlightName>{coinList[currentFavorite].CoinName}</SpotlightName>
+            <CoinImage coin={coinList[currentFavorite]} spotlight />
+          </Tile>
+        </React.Fragment>
       )}
     </AppContext.Consumer>
   );
