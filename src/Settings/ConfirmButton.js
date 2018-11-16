@@ -8,6 +8,7 @@ const ConfirmButtonStyled = styled.div`
   margin: 20px;
   color: ${color3};
   ${fontSize1};
+  text-decoration: underline;
   padding: 5px;
   cursor: pointer;
   &:hover {

@@ -10,7 +10,7 @@ const Logo = styled.div`
 const Bar = styled.div`
   display: grid;
   margin-bottom: 40px;
-  grid-template-columns: 180px auto 100px 100px;
+  grid-template-columns: 150px auto 80px 80px;
 `;
 
 const ControlButtonElem = styled.div`
@@ -44,7 +44,7 @@ function ControlButton({name}) {
 export default function() {
   return (
     <Bar>
-      <Logo>CryptoDashboard</Logo>
+      <Logo>Crypto-Board</Logo>
       <div></div>
       <ControlButton name="dashboard" />
       <ControlButton name="settings" />
