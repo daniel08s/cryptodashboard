@@ -23,7 +23,7 @@ export const fontColorGreen = `color: #03A9F4`;
 export const fontColorWhite = `color: white`;
 export const subtleBoxShadow = `box-shadow: 0px 0px 5px 1px ${lightTheme ? '#a9b6ff' : '#121d5b'}`;
 export const subtleBoxShadow2 = `box-shadow: 0px 0px 5px 1px ${lightTheme ? '#a9b6ff' : '#8339de'}`;
-export const greenBoxShadow = `box-shadow: 0px 0px 4px 2px greenyellow`;
+export const greenBoxShadow = `box-shadow: 0px 0px 4px 2px ${lightTheme ? 'green' : '#greenyellow'}`;
 export const redBoxShadow = `box-shadow: 0px 0px 2px 2px #e41111`;
 
 export const fontSizeBig = 'font-size: 2em';

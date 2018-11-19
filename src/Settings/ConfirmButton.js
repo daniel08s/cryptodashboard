@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { AppContext } from '../App/AppProvider';
-import { fontSize1, greenBoxShadow, color3} from '../Shared/Styles';
+import { fontSize1, greenBoxShadow, color6} from '../Shared/Styles';
 
 const ConfirmButtonStyled = styled.div`
   margin: 20px;
-  color: ${color3};
+  color: ${color6};
   ${fontSize1};
   text-decoration: underline;
   padding: 5px;
