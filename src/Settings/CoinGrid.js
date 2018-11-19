@@ -29,7 +29,7 @@ export default function({topSection}) {
               <CoinTile
                 topSection={topSection}
                 coinKey={coinKey}
-                key={coinKey}
+                key={`coinTile-${coinKey}`}
               />
             );
           })}

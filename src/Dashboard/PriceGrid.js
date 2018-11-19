@@ -20,7 +20,7 @@ export default () => {
             <PriceTile
               price={price}
               index={index}
-              key={index}
+              key={`priceTile-${index}`}
             />
           ))}
         </PriceGrid>
