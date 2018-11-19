@@ -4,11 +4,11 @@ import ReactHighcharts from 'react-highcharts';
 import highchartsConfig from './HighchartsConfig';
 import { Tile } from '../Shared/Tile';
 import { AppContext } from '../App/AppProvider';
-import { purpleTheme } from './HighchartsTheme';
+import { mainTheme } from './HighchartsTheme';
 import ChartSelect from './ChartSelect';
 
 // Apply the theme
-ReactHighcharts.Highcharts.setOptions(purpleTheme);
+ReactHighcharts.Highcharts.setOptions(mainTheme);
 
 export default () => {
   const options = [

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { AppContext } from '../App/AppProvider';
 import { SelectableTile } from '../Shared/Tile';
-import { fontSize3, fontSizeBig, greenBoxShadow } from '../Shared/Styles';
+import { fontSize3, fontSizeBig, greenBoxShadow, color5 } from '../Shared/Styles';
 import { CoinHeaderGridStyled } from '../Settings/CoinHeaderGrid';
 
 const numberFormat = number => +(number + '').slice(0, 7);
@@ -21,7 +21,7 @@ const TickerPrice = styled.div`
 `;
 
 const ChangePct = styled.div`
-  color: greenyellow;
+  color: ${color5};
   ${props => props.negative && css`
     color: red;
   `}

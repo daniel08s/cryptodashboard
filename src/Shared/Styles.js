@@ -1,11 +1,13 @@
-const theme = 'dark';
-//const theme = 'light';
+//const theme = 'dark';
+const theme = 'light';
 export const lightTheme = theme === 'light';
 
 export const color = lightTheme ? 'white' : '#061a44';
 export const color2 = lightTheme ? 'white' : '#010e2c';
-export const color3 = lightTheme ? '#09f010' : 'greenyellow';
-export const color4 = lightTheme ? '#09f010' : '#4a2086';
+export const color3 = lightTheme ? '#ededed' : 'greenyellow';
+export const color4 = lightTheme ? '#ededed' : '#4a2086';
+export const color5 = lightTheme ? 'green' : 'greenyellow';
+export const color6 = lightTheme ? 'black' : 'white';
 
 if (lightTheme) {
   document.body.style.background = '#e1eaee';

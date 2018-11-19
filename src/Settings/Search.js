@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { debounce, pickBy } from 'lodash';
 import fuzzy from 'fuzzy';
 
-import { purpleBackground, fontSize2 } from '../Shared/Styles';
+import { purpleBackground, fontSize2, color6 } from '../Shared/Styles';
 import { AppContext } from '../App/AppProvider';
 
 const SearchGrid = styled.div`
@@ -14,7 +14,7 @@ const SearchGrid = styled.div`
 const SearchInput = styled.input`
   ${purpleBackground};
   ${fontSize2};
-  color: #fff;
+  color: ${color6};
   border: 1px solid;
   border-radius: 3px;
   height: 25px;

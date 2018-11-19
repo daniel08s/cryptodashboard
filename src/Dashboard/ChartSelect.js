@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 
-import {purpleBackground, fontSize2} from '../Shared/Styles';
+import {purpleBackground, fontSize2, color6} from '../Shared/Styles';
 
 const Select = styled.select`
   float: right;
   margin: 0;
   height: 25px;
-  color: #FFF;
+  color: ${color6};
   ${purpleBackground}
   border: 1px solid #D0D0D0;
   border-radius: .25rem;
   cursor: pointer;
   outline: 0;
   ${fontSize2}
+
+  & option {
+    color: ${color6};
+  }
 
   /* Undo the Firefox inner focus ring */
   &:focus:-moz-focusring {
@@ -38,7 +42,7 @@ const Select = styled.select`
 
   /* Active/open */
   &:active {
-    color: #fff;
+    color: ${color6};
   }
 
   /* Hide the arrow in IE10 and up */
@@ -69,7 +73,7 @@ const Select = styled.select`
     &:hover,
     &:focus,
     &:active {
-      color: #555;
+      color: ${color6};
       background-color: #eee;
     }
   }
